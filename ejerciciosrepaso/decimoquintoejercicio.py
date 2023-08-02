@@ -20,7 +20,7 @@ def determinar_palindromo(texto: str):
     inicio = 0
     fin = len(lista_letras) - 1
 
-    # Creamos un ciclo while válido mientras la primer letra del texto convertido en lista sea igual a la última.
+    # Creamos un ciclo while para comparar las letras inciales y finales mientras vamos acercando sus posiciones desde cada extremo de la lista para recorrerla por completo.
     while lista_letras[inicio] == lista_letras[fin]:
         if inicio >= fin:
             print(f"La cadena de texto: '{textoAux}' es palíndroma.")
