@@ -1,3 +1,3 @@
-# Ejercicios de Repaso para POO
+# Repositorio Actividades Participativas POO
 
-En éste repositorio se resolverán los ejercicios de repaso para POO.
+En éste repositorio se adjuntarán las actividades participativas de Algoritmos y Programación Orientada a Objetos.
