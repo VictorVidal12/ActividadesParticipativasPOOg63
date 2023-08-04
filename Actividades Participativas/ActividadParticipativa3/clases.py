@@ -81,12 +81,11 @@ class Circulo:
         return perimetro
 
     def pertenece_al_circulo(self, punto: Punto):
-        formula_pertenece = ((punto.coordenada_x + self.centro.coordenada_x) ** 2) + (
-                    (punto.coordenada_y + self.centro.coordenada_y) ** 2)
-        if formula_pertenece < self.radio ** 2:
-            print(f"El punto {punto} es interior a la circunferencia.")
-        elif formula_pertenece == self.radio ** 2:
+        formula_pertenece = ((punto.coordenada_x - self.centro.coordenada_x) ** 2) + ((punto.coordenada_y - self.centro.coordenada_y) ** 2)
+        if formula_pertenece == self.radio**2:
             print(f"El punto {punto} pertenece a la circunferencia.")
+        elif formula_pertenece < self.radio**2:
+            print(f"El punto {punto} es interior a la circunferencia.")
         else:
-            print(f"El punto {punto} no pertenece ni al interior ni al borde de la circunferencia.")
+            print(f"El punto {punto} es exterior a la circunferencia.")
         return
