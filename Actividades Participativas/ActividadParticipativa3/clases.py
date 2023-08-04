@@ -32,7 +32,9 @@ class Punto:
         return distancia
 
 
-# Cree una clase Rectángulo la cual contiene dos atributos de instancia que representan los puntos que definen sus esquinas. Agregue métodos a la clase Rectángulo para calcular su perímetro, calcular su área e indicar si el rectángulo es un cuadrado.
+# Cree una clase Rectángulo la cual contiene dos atributos de instancia que representan los puntos que definen sus
+# esquinas. Agregue métodos a la clase Rectángulo para calcular su perímetro, calcular su área e indicar si el
+# rectángulo es un cuadrado.
 class Rectangulo:
     def __init__(self, esquina_1: Punto, esquina_2: Punto):
         self.esquina_1 = esquina_1
@@ -66,7 +68,9 @@ class Rectangulo:
         return
 
 
-# Cree una clase Circulo que tenga las propiedades centro y radio, las cuales se inicializan con parámetros en el constructor. Defina métodos en la clase para calcular el área, el perímetro e indicar si un punto pertenece al círculo o no.
+# Cree una clase Circulo que tenga las propiedades centro y radio, las cuales se inicializan con parámetros en el
+# constructor. Defina métodos en la clase para calcular el área, el perímetro e indicar si un punto pertenece al
+# círculo o no.
 class Circulo:
     def __init__(self, centro: Punto, radio: float):
         self.centro = centro
@@ -81,11 +85,56 @@ class Circulo:
         return perimetro
 
     def pertenece_al_circulo(self, punto: Punto):
-        formula_pertenece = ((punto.coordenada_x - self.centro.coordenada_x) ** 2) + ((punto.coordenada_y - self.centro.coordenada_y) ** 2)
-        if formula_pertenece == self.radio**2:
+        formula_pertenece = ((punto.coordenada_x - self.centro.coordenada_x) ** 2) + (
+                    (punto.coordenada_y - self.centro.coordenada_y) ** 2)
+        if formula_pertenece == self.radio ** 2:
             print(f"El punto {punto} pertenece a la circunferencia.")
-        elif formula_pertenece < self.radio**2:
+        elif formula_pertenece < self.radio ** 2:
             print(f"El punto {punto} es interior a la circunferencia.")
         else:
             print(f"El punto {punto} es exterior a la circunferencia.")
+        return
+
+
+# Cree una clase Carta que contenga dos propiedades valor y pinta, las cuales son asignadas solo al momento de la
+# construcción del objeto (se pasan como parámetros en el constructor). Defina 4 constantes que representan los
+# nombres de las 4 pintas que puede tener una carta.
+class Carta:
+    def __init__(self, valor: int, pinta: str):
+        self.valor: int = valor
+        self.pinta: str = pinta
+
+
+# Cree una clase CuentaBancaria que contenga los siguientes atributos: numero_cuenta, propietarios y balance. Los
+# tres atributos se deben inicializar en el constructor con valores recibidos como parámetros.
+class CuentaBancaria:
+    def __init__(self, numero_cuenta, propietario, balance):
+        self.numero_cuenta = numero_cuenta
+        self.propietario = propietario
+        self.balance = balance
+
+    # Para la clase CuentaBancaria, cree un método depositar que maneje las acciones de depósito en la cuenta.
+    def depositar(self, deposito):
+        self.balance = self.balance + deposito
+        return self.balance
+
+    # Para la clase CuentaBancaria, cree un método depositar que maneje las acciones de depósito en la cuenta.
+    def retirar(self, retiro):
+        self.balance = self.balance - retiro
+        return self.balance
+
+    # Para la clase CuentaBancaria, cree un método aplicar_cuota_manejo que aplique un porcentaje del 2% sobre el
+    # balance de la cuenta.
+    def aplicar_cuota_manejo(self, deposito, retiro):
+        self.balance = self.depositar(deposito) * 0.02
+        self.balance = self.retirar(retiro) * 0.02
+        return self.balance
+
+    # Para la clase CuentaBancaria, cree un método mostrar_detalles que imprima por consola los detalles de la cuenta
+    # bancaria.
+
+    def mostrar_detalles(self):
+        print(f"El número de la cuenta es: {self.numero_cuenta}")
+        print(f"El propietario de la cuenta es: {self.propietario}")
+        print(f"El balance de la cuenta es: {self.balance}")
         return
