@@ -1,3 +1,6 @@
+import numpy as np
+
+
 # Cree una clase Vehículo que contenga los atributos de instancia velocidad_maxima y kilometraje.
 class Vehiculo:
     def __init__(self, velocidad_maxima, kilometraje):
@@ -62,3 +65,28 @@ class Rectangulo:
             print("No es cuadrado")
         return
 
+
+# Cree una clase Circulo que tenga las propiedades centro y radio, las cuales se inicializan con parámetros en el constructor. Defina métodos en la clase para calcular el área, el perímetro e indicar si un punto pertenece al círculo o no.
+class Circulo:
+    def __init__(self, centro: Punto, radio: float):
+        self.centro = centro
+        self.radio = radio
+
+    def calcular_area_circulo(self):
+        area = np.pi * (self.radio ** 2)
+        return area
+
+    def calcular_perimetro_circulo(self):
+        perimetro = 2 * np.pi * self.radio
+        return perimetro
+
+    def pertenece_al_circulo(self, punto: Punto):
+        formula_pertenece = ((punto.coordenada_x + self.centro.coordenada_x) ** 2) + (
+                    (punto.coordenada_y + self.centro.coordenada_y) ** 2)
+        if formula_pertenece < self.radio ** 2:
+            print(f"El punto {punto} es interior a la circunferencia.")
+        elif formula_pertenece == self.radio ** 2:
+            print(f"El punto {punto} pertenece a la circunferencia.")
+        else:
+            print(f"El punto {punto} no pertenece ni al interior ni al borde de la circunferencia.")
+        return
