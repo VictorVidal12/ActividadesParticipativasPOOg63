@@ -96,9 +96,14 @@ class Circulo:
 # construcción del objeto (se pasan como parámetros en el constructor). Defina 4 constantes que representan los
 # nombres de las 4 pintas que puede tener una carta.
 class Carta:
-    def __init__(self, valor: int, pinta: str):
+    PICAS = 1
+    TREBOL = 2
+    DIAMANTES = 3
+    CORAZONES = 4
+
+    def __init__(self, valor: int, pinta: int):
         self.valor: int = valor
-        self.pinta: str = pinta
+        self.pinta: int = pinta
 
 
 # Cree una clase CuentaBancaria que contenga los siguientes atributos: numero_cuenta, propietarios y balance. Los
@@ -108,6 +113,11 @@ class CuentaBancaria:
         self.numero_cuenta: str = numero_cuenta
         self.propietario: str = propietario
         self.balance: float = 0
+
+    # Para la clase CuentaBancaria, cree un método aplicar_cuota_manejo que aplique un porcentaje del 2% sobre el
+    # balance de la cuenta.
+    def aplicar_cuota_manejo(self) -> None:
+        self.balance *= 0.98
 
     # Para la clase CuentaBancaria, cree un método depositar que maneje las acciones de depósito en la cuenta.
     def depositar(self, deposito: float) -> None:
@@ -122,11 +132,6 @@ class CuentaBancaria:
             retiro = self.balance
             self.balance = 0
             return retiro
-
-    # Para la clase CuentaBancaria, cree un método aplicar_cuota_manejo que aplique un porcentaje del 2% sobre el
-    # balance de la cuenta.
-    def aplicar_cuota_manejo(self, retiro: float) -> None:
-        self.balance = self.retirar(retiro) * 0.02
 
     # Para la clase CuentaBancaria, cree un método mostrar_detalles que imprima por consola los detalles de la cuenta
     # bancaria.
