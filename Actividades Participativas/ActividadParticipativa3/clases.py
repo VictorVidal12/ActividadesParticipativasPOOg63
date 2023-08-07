@@ -26,7 +26,7 @@ class Punto:
 
     # Un método calcular_distancia que calcule la distancia de la instancia actual con otro punto.
     def calcular_distancia(self, otro_x: float, otro_y: float) -> float:
-        distancia = (otro_y - self.coordenada_y) / (otro_x - self.coordenada_x)
+        distancia = ((otro_x - self.coordenada_x)**2 + (otro_y - self.coordenada_y)**2)**(1/2)
         return distancia
 
 
