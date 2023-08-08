@@ -26,13 +26,12 @@ class Punto:
 
     # Un método calcular_distancia que calcule la distancia de la instancia actual con otro punto.
     def calcular_distancia(self, otro_x: float, otro_y: float) -> float:
-        distancia = ((otro_x - self.coordenada_x)**2 + (otro_y - self.coordenada_y)**2)**(1/2)
+        distancia = ((otro_x - self.coordenada_x) ** 2 + (otro_y - self.coordenada_y) ** 2) ** (1 / 2)
         return distancia
 
 
 # Cree una clase Rectángulo la cual contiene dos atributos de instancia que representan los puntos que definen sus
-# esquinas. Agregue métodos a la clase Rectángulo para calcular su perímetro, calcular su área e indicar si el
-# rectángulo es un cuadrado.
+# esquinas.
 class Rectangulo:
     def __init__(self, esquina_1: Punto, esquina_2: Punto):
         self.esquina_1: Punto = esquina_1
@@ -47,16 +46,19 @@ class Rectangulo:
             lado_2 = lado_2 * -1
         return lado_1, lado_2
 
+    # Agregue métodos a la clase Rectángulo para calcular su perímetro
     def calcular_perimetro(self) -> float:
         lado_1, lado_2 = self.lados()
         perimetro = 2 * (lado_1 + lado_2)
         return perimetro
 
+    # Calcular su área
     def calcular_area(self) -> float:
         lado_1, lado_2 = self.lados()
         area = lado_1 * lado_2
         return area
 
+    # Indicar si el rectángulo es un cuadrado.
     def definir_cuadrado(self) -> None:
         lado_1, lado_2 = self.lados()
         if lado_1 == lado_2:
@@ -66,24 +68,26 @@ class Rectangulo:
 
 
 # Cree una clase Circulo que tenga las propiedades centro y radio, las cuales se inicializan con parámetros en el
-# constructor. Defina métodos en la clase para calcular el área, el perímetro e indicar si un punto pertenece al
-# círculo o no.
+# constructor.
 class Circulo:
     def __init__(self, centro: Punto, radio: float):
         self.centro: Punto = centro
         self.radio: float = radio
 
+    # Defina un método para calcular el área del círculo
     def calcular_area_circulo(self) -> float:
         area = np.pi * (self.radio ** 2)
         return area
 
+    # El perímetro del círculo
     def calcular_perimetro_circulo(self) -> float:
         perimetro = 2 * np.pi * self.radio
         return perimetro
 
+    # Indicar si un punto pertenece al círculo o no.
     def pertenece_al_circulo(self, punto: Punto) -> None:
         formula_pertenece = ((punto.coordenada_x - self.centro.coordenada_x) ** 2) + (
-                    (punto.coordenada_y - self.centro.coordenada_y) ** 2)
+                (punto.coordenada_y - self.centro.coordenada_y) ** 2)
         if formula_pertenece == self.radio ** 2:
             print(f"El punto {(punto.coordenada_x, punto.coordenada_y)} pertenece a la circunferencia.")
         elif formula_pertenece < self.radio ** 2:
@@ -93,9 +97,9 @@ class Circulo:
 
 
 # Cree una clase Carta que contenga dos propiedades valor y pinta, las cuales son asignadas solo al momento de la
-# construcción del objeto (se pasan como parámetros en el constructor). Defina 4 constantes que representan los
-# nombres de las 4 pintas que puede tener una carta.
+# construcción del objeto (se pasan como parámetros en el constructor).
 class Carta:
+    # Defina 4 constantes que representan los nombres de las 4 pintas que puede tener una carta.
     PICAS = 1
     TREBOL = 2
     DIAMANTES = 3
@@ -135,7 +139,6 @@ class CuentaBancaria:
 
     # Para la clase CuentaBancaria, cree un método mostrar_detalles que imprima por consola los detalles de la cuenta
     # bancaria.
-
     def mostrar_detalles(self):
         print(f"El número de la cuenta es: {self.numero_cuenta}")
         print(f"El propietario de la cuenta es: {self.propietario}")
