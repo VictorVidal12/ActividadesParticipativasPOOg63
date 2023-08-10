@@ -13,4 +13,3 @@ class Student:
             average += j
         average /= len(self.grades)
         return average
-
