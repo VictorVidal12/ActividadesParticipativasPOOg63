@@ -1,25 +1,25 @@
 class Estudiante:
-    def __init__(self, id, nombre, nota):
-        self.id = id
-        self.nombre = nombre
-        self.nota = nota
+    def __init__(self, id: str, nombre: str, nota: float):
+        self.id: str = id
+        self.nombre: str = nombre
+        self.nota: float = nota
 
 
 class Curso:
     def __init__(self):
-        self.estudiantes = []
+        self.estudiantes: list = []
 
-    def agregar_estudiante(self, estudiante: Estudiante):
+    def agregar_estudiante(self, estudiante: Estudiante) -> None:
         self.estudiantes.append(estudiante)
 
-    def notas_a_cero(self):
+    def notas_a_cero(self) -> None:
         for j in self.estudiantes:
             if j.nota <= 3:
                 j.nota = 0
             else:
                 break
 
-    def nota_mediana(self):
+    def nota_mediana(self) -> float:
         nota_media = 0
         for j in self.estudiantes:
             nota_media += j.nota
