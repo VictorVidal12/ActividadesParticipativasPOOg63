@@ -1,15 +1,21 @@
-class Student:
-    def __init__(self, name: str, age: int):
-        self.name: str = name
-        self.age: int = age
-        self.grades: list = []
 
-    def add_grade(self, grade):
-        self.grades.append(grade)
+import numpy as np
 
-    def average_grade(self):
-        average = 0
-        for j in self.grades:
-            average += j
-        average /= len(self.grades)
-        return average
+
+def angulo_menor(horas: int, minutos: int) -> int:
+    # Condición simple
+    if horas*5 == minutos:
+        return 0
+    # Medimos los ángulos de dos formas diferentes
+    # Éste mide el ángulo que se forma por la exterior de las manecillas
+    angulo_1 = 360 - np.abs(horas*30 - minutos*6)
+    # Éste mide el ángulo que se forma por la interior de las manecillas
+    angulo_2 = np.abs(horas*30 - minutos*6)
+    # Compara ambos ángulos para ver cuál es el menor y lo retorna
+    if angulo_2 > angulo_1:
+        return angulo_1
+    else:
+        return angulo_2
+
+
+print(angulo_menor(12, 15))
