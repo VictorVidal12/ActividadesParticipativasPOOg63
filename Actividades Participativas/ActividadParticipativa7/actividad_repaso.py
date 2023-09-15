@@ -37,8 +37,8 @@ class Conjunto:
         if isinstance(otro_conjunto, Conjunto):
             self.elementos + otro_conjunto
 
-    @classmethod
-    def intersectar(cls, conjunto_1, conjunto_2):
+    @staticmethod
+    def intersectar(conjunto_1, conjunto_2):
         conjunto_3: Conjunto = Conjunto("conjunto 3")
         for elemento in conjunto_1.elementos:
             for element in conjunto_2.elementos:
