@@ -1,9 +1,9 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Elemento:
     nombre: str
-
 
     def __eq__(self, other):
         return self.nombre == other.nombre
@@ -11,6 +11,7 @@ class Elemento:
 
 class Conjunto:
     count: int = 0
+
     def __init__(self, nombre: str):
         self.elementos: list[Elemento] = []
         self.nombre: str = nombre
@@ -29,6 +30,7 @@ class Conjunto:
             if self.contiene(elemento):
                 self.elementos.append(elemento)
         return self.elementos
+
     def agregar_elemento(self, elemento: Elemento) -> None:
         if self.contiene(elemento):
             self.elementos.append(elemento)
@@ -47,7 +49,4 @@ class Conjunto:
         return conjunto_3
 
     def __str__(self) -> str:
-        return f"Conjunto {self.nombre}: ({self.elementos}"
-
-
-
+        return f"Conjunto {self.nombre}: ({self.elementos})"
